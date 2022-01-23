@@ -53,17 +53,17 @@ export default function FretBoard({ root, notes, showAllNotes, reverse }) {
     const markersArr = [...Array(25)]
 
     const fretWidth = (i, border = true) => {
-        if (!border) {
-            const extra = 3.5;
-            return reverse ? `${(i * 3) + 35 + extra}px` : `${107 - (i * 3) + extra}px`;
-        }
+        // if (!border) {
+        //     const extra = 3.5;
+        //     return reverse ? `${(i * 3) + 35 + extra}px` : `${107 - (i * 3) + extra}px`;
+        // }
         return reverse ? `${(i * 3) + 35}px` : `${107 - (i * 3)}px`;
     }
 
     return (
         <main style={{ marginTop: '20px' }} >
             {fretBoard.map(string => (
-                <div style={{ display: 'flex', width: window.innerWidth - 10 }}>
+                <div style={{ display: 'flex', width: '100%' }}>
                     {string.map((note, i) => (
                         <div style={{
                             backgroundColor: note === root ? 'lightskyblue' : (notes.includes(note) && 'lawngreen'),
@@ -80,7 +80,7 @@ export default function FretBoard({ root, notes, showAllNotes, reverse }) {
                 </div>
             ))
             }
-            <div style={{ display: 'flex', width: window.innerWidth - 10 }}>
+            <div style={{ display: 'flex', width: '100%' }}>
                 {markersArr.map((_, fret) => (
                     <div style={{
                         height: '20px',
