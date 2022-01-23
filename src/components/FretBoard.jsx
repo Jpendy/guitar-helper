@@ -82,8 +82,9 @@ export default function FretBoard({ root, notes, showAllNotes, reverse }) {
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        position: 'relative',
-                        left: reverse ? (fret !== 0 && '6px') : (fret !== markersArr.length - 1 && '-6px')
+                        textAlign: 'center'
+                        // position: 'relative',
+                        // left: reverse ? (fret !== 0 && '6px') : (fret !== markersArr.length - 1 && '-6px')
                     }}>
                         {reverse ? (fretMarkerMap[markersArr.length - fret - 1] || fretMarkerMap.default) : (fretMarkerMap[fret] || fretMarkerMap.default)}
                     </div>
