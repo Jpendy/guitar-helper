@@ -63,7 +63,7 @@ export default function FretBoard({ root, notes, showAllNotes, reverse }) {
     return (
         <main style={{ marginTop: '20px' }} >
             {fretBoard.map(string => (
-                <div style={{ display: 'flex', width: '100%' }}>
+                <div style={{ display: 'flex', width: window.innerWidth - 10 }}>
                     {string.map((note, i) => (
                         <div style={{
                             backgroundColor: note === root ? 'lightskyblue' : (notes.includes(note) && 'lawngreen'),
@@ -80,7 +80,7 @@ export default function FretBoard({ root, notes, showAllNotes, reverse }) {
                 </div>
             ))
             }
-            <div style={{ display: 'flex', width: '100%' }}>
+            <div style={{ display: 'flex', width: window.innerWidth - 10 }}>
                 {markersArr.map((_, fret) => (
                     <div style={{
                         height: '20px',
