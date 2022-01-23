@@ -52,7 +52,13 @@ export default function FretBoard({ root, notes, showAllNotes, reverse }) {
 
     const markersArr = [...Array(25)]
 
-    const fretWidth = (i) => reverse ? `${(i * 3) + 35}px` : `${107 - (i * 3)}px`
+    const fretWidth = (i, border = true) => {
+        if (!border) {
+            const extra = 3.5;
+            return reverse ? `${(i * 3) + 35 + extra}px` : `${107 - (i * 3) + extra}px`;
+        }
+        return reverse ? `${(i * 3) + 35}px` : `${107 - (i * 3)}px`;
+    }
 
     return (
         <main style={{ marginTop: '20px' }} >
@@ -78,12 +84,12 @@ export default function FretBoard({ root, notes, showAllNotes, reverse }) {
                 {markersArr.map((_, fret) => (
                     <div style={{
                         height: '20px',
-                        width: fretWidth(fret),
+                        width: fretWidth(fret, false),
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
                         textAlign: 'center',
-                        border: reverse ? (fret !== markersArr.length - 1 && '1px solid black') : (fret !== 0 && '1px solid black'),
+                        // border: reverse ? (fret !== markersArr.length - 1 && '1px solid black') : (fret !== 0 && '1px solid black'),
 
                         // position: 'relative',
                         // left: reverse ? (fret !== 0 && '6px') : (fret !== markersArr.length - 1 && '-6px')
