@@ -11,7 +11,7 @@ export default function Guitar() {
     const [notes, setNotes] = useState(cMajorScale)
     const [root, setRoot] = useState('')
     const [showAllNotes, setShowAllNotes] = useState(false)
-    const [reverse, setReverse] = useState(true)
+    const [reverse, setReverse] = useState(false)
 
     const toggleShowAllNotes = () => {
         setShowAllNotes(prev => !prev)
@@ -24,10 +24,13 @@ export default function Guitar() {
     return (
         <>
             <div>
-                <input onChange={e => setRoot(e.target.value.toUpperCase())} placeholder="root note" />
-                <input onChange={e => setNotes(e.target.value.split(/(\s|,)/).map(note => note.toUpperCase()))} />
+                <input onChange={e => setRoot(e.target.value[0].toUpperCase())} placeholder="Root Note" />
+                <input onChange={e => setNotes(e.target.value.split(/(\s|,)/).map(note => note.toUpperCase()))} placeholder={notes} />
                 <button onClick={toggleShowAllNotes} style={{ height: '21.5px', width: '130px', cursor: 'pointer' }} >{showAllNotes ? 'Hide Other Notes' : 'Show All Notes'}</button>
                 <button onClick={toggleReverse} style={{ height: '21.5px', width: '130px', cursor: 'pointer' }} >{reverse ? 'Switch to righty' : 'Switch to lefty'}</button>
+            </div>
+            <div>
+                <h2>Notes Shown: {notes}</h2>
             </div>
             <FretBoard
                 root={root}
