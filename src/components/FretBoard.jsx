@@ -55,7 +55,7 @@ export default function FretBoard({ root, notes, showAllNotes, reverse }) {
     const fretWidth = (i) => reverse ? `${(i * 3) + 35}px` : `${107 - (i * 3)}px`
 
     return (
-        <main style={{ marginTop: '140px' }} >
+        <main style={{ marginTop: '20px' }} >
             {fretBoard.map(string => (
                 <div style={{ display: 'flex' }}>
                     {string.map((note, i) => (
