@@ -6,7 +6,7 @@ import FretBoard from './FretBoard';
 export default function Guitar() {
 
     const cMajorScale = ['C', 'D', 'E', 'F', 'G', 'A', 'B']
-    const aMinorPentatonic = ['A', 'C', 'D', 'E', 'G']
+    // const aMinorPentatonic = ['A', 'C', 'D', 'E', 'G']
 
     const [notes, setNotes] = useState(cMajorScale)
     const [root, setRoot] = useState('')
